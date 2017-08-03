@@ -46,7 +46,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Ameye\DoorsFree\Demo\MouseLook.cs" />
+     <Compile Include="Assets\Ameye\DoorsFree\Demo\PlayerMovement.cs" />
+     <Compile Include="Assets\Ameye\DoorsFree\Scripts\ConditionalHideAttribute.cs" />
+     <Compile Include="Assets\Ameye\DoorsFree\Scripts\Detection.cs" />
+     <Compile Include="Assets\Ameye\DoorsFree\Scripts\Door.cs" />
+     <Compile Include="Assets\Script\Detected.cs" />
+     <Compile Include="Assets\Script\Doors.cs" />
      <Compile Include="Assets\Script\player.cs" />
+     <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_findCam.cs" />
+     <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_openAnim_S.cs" />
+     <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_openDoor_S.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Engine/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

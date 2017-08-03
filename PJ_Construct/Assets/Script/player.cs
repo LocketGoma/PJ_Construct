@@ -49,7 +49,7 @@ public class player : MonoBehaviour {
 
         
         rotP = rot * ind * Time.deltaTime;
-        print("rot:"+rotP);
+ //       print("rot:"+rotP);
 
         transform.Rotate(0, rotP, 0);
         //rbody.transform.rotation = Quaternion.Euler(0, rotP, 0);
