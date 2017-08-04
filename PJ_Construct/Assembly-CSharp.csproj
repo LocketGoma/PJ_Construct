@@ -53,6 +53,7 @@
      <Compile Include="Assets\Ameye\DoorsFree\Scripts\Door.cs" />
      <Compile Include="Assets\Script\Detected.cs" />
      <Compile Include="Assets\Script\Doors.cs" />
+     <Compile Include="Assets\Script\Wall_color.cs" />
      <Compile Include="Assets\Script\player.cs" />
      <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_findCam.cs" />
      <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_openAnim_S.cs" />

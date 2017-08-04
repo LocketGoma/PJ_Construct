@@ -10,7 +10,8 @@ public class Detected : MonoBehaviour {
     [HideInInspector]
     public bool InReach;
     public string Character = "e";
-
+    [Tooltip("control to change color")]
+    public string changer = "x";
 
 
 
@@ -69,7 +70,21 @@ public class Detected : MonoBehaviour {
                     }
                 }
             }
+            else if (hit.collider.tag == "Wall")
+            {
+                Debug.Log("3_2");
+                InReach = true;
 
+                GameObject Wall = hit.transform.gameObject;
+
+                Wall_color Wall_color = Wall.GetComponent<Wall_color>();
+                if (Input.GetKey(changer))
+                {
+                    Debug.Log("4_2");
+                    hit.collider.GetComponent<Wall_color>().change();
+                }
+
+            }
             else
             {
                 InReach = false;
