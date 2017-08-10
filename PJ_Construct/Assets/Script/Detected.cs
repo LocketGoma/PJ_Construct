@@ -88,8 +88,6 @@ public class Detected : MonoBehaviour {
             else
             {
                 InReach = false;
-
-
             }
         }
 
