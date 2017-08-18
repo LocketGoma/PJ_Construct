@@ -46,8 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Ameye\DoorsFree\Scripts\Editor\ConditionalHidePropertyDrawer.cs" />
-     <Compile Include="Assets\Ameye\DoorsFree\Scripts\Editor\SupportWindow.cs" />
+     <Compile Include="Assets\Script\Editor\ConditionalHidePropertyDrawer.cs" />
+     <Compile Include="Assets\Script\Editor\SupportWindow.cs" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Engine/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

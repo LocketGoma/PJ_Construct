@@ -46,13 +46,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Ameye\DoorsFree\Demo\MouseLook.cs" />
-     <Compile Include="Assets\Ameye\DoorsFree\Demo\PlayerMovement.cs" />
-     <Compile Include="Assets\Ameye\DoorsFree\Scripts\ConditionalHideAttribute.cs" />
-     <Compile Include="Assets\Ameye\DoorsFree\Scripts\Detection.cs" />
-     <Compile Include="Assets\Ameye\DoorsFree\Scripts\Door.cs" />
+     <Compile Include="Assets\Script\Cameracontrol.cs" />
+     <Compile Include="Assets\Script\ConditionalHideAttribute.cs" />
      <Compile Include="Assets\Script\Detected.cs" />
      <Compile Include="Assets\Script\Doors.cs" />
+     <Compile Include="Assets\Script\Move.cs" />
      <Compile Include="Assets\Script\Wall_color.cs" />
      <Compile Include="Assets\Script\player.cs" />
      <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_findCam.cs" />
