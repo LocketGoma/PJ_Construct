@@ -10,8 +10,9 @@ public class Cameracontrol : MonoBehaviour {
     //public float sensitivity = 0.05f;
    
     public Camera cam;
- //   public GameObject character;
+    //   public GameObject character;
 
+ 
 
     public Vector2 targetDirection;
     public Vector2 targetCharacterDirection;
@@ -28,7 +29,9 @@ public class Cameracontrol : MonoBehaviour {
         targetDirection = transform.localRotation.eulerAngles;
 
         // Set target direction for the character body to its inital state.
- //     if (character) targetCharacterDirection = character.transform.localRotation.eulerAngles;
+        //     if (character) targetCharacterDirection = character.transform.localRotation.eulerAngles;
+
+
     }
 	
 	// Update is called once per frame

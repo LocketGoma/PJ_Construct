@@ -13,7 +13,7 @@ public class player : MonoBehaviour {
     private float inputV; // 수직 입력
 
 
-    bool locked=true;         //T: 사용중, F:사용불가
+    bool locked=true;         //1: 사용중, 0 : 사용불가
     public Vector3 Gravity = Vector3.down * 9.81f;
     public float RotationRate = 0.1f;
 
@@ -102,4 +102,5 @@ public class player : MonoBehaviour {
     {
         locked = true;
     }
+
 }

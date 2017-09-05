@@ -7,6 +7,8 @@ public class Detected : MonoBehaviour {
     [Header("General Settings")]
     [Tooltip("How close the player has to be in order to be able to open/close the door.")]
     public float Reach = 4.0F;
+    [Header("target user")]
+    public GameObject user;
     [HideInInspector]
     public bool InReach;            //<- 어따 씀?
     [Header("Key binding")]
@@ -42,6 +44,13 @@ public class Detected : MonoBehaviour {
         gameObject.tag = "Player";
         DebugRayColor.a = Opacity; // DebugRayColor 알파값 설정. 0 : 안보임 / 1:진하게 보임. 값은 0~1
         master = GameObject.FindGameObjectWithTag("GameController");    //'gamecontroller' 로 설정된 오브젝트 찾기. 해당 오브젝트 = 마스터 컨트롤 오브젝트.
+
+        if (CrosshairPrefab == null) Debug.Log("<color=yellow><b>No CrosshairPrefab was found.</b></color>"); // Return an error if no crosshair was specified
+        else
+        {
+            CrosshairPrefabInstance = Instantiate(CrosshairPrefab); // Display the crosshair prefab
+            CrosshairPrefabInstance.transform.SetParent(transform, true); // Make the player the parent object of the crosshair prefab
+        }
     }
 
     void Update()
@@ -80,11 +89,17 @@ public class Detected : MonoBehaviour {
             else if (hit.collider.tag== "Furniture")
             {
                 InReach = true;
+                
+                player playerscript = user.GetComponent<player>();
                 GameObject furniture = hit.transform.gameObject;
                 Control_object control = furniture.GetComponent<Control_object>();
                 if (Input.GetKeyDown(action_selete))
                 {
-                    control.Locker();
+                    if(control.Locker()==1)
+                    playerscript.locker();
+                    else if (control.world_locker()==0)
+                    playerscript.release();
+
                 }
             }
             else if (Input.GetKeyDown(drop))
