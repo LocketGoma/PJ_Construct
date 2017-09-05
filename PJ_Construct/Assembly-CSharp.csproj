@@ -48,8 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Cameracontrol.cs" />
      <Compile Include="Assets\Script\ConditionalHideAttribute.cs" />
+     <Compile Include="Assets\Script\Control_object.cs" />
      <Compile Include="Assets\Script\Detected.cs" />
      <Compile Include="Assets\Script\Doors.cs" />
+     <Compile Include="Assets\Script\Group_Furniture.cs" />
      <Compile Include="Assets\Script\Move.cs" />
      <Compile Include="Assets\Script\Wall_color.cs" />
      <Compile Include="Assets\Script\player.cs" />

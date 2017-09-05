@@ -8,81 +8,90 @@ public class Detected : MonoBehaviour {
     [Tooltip("How close the player has to be in order to be able to open/close the door.")]
     public float Reach = 4.0F;
     [HideInInspector]
-    public bool InReach;
-    public string Character = "e";
+    public bool InReach;            //<- 어따 씀?
+    [Header("Key binding")]
+    [Tooltip("open door")]
+    public string action_door = "e";
     [Tooltip("control to change color")]
-    public string changer = "x";
-
-
+    public string action_color = "x";
+    [Tooltip("select furniture")]
+    public string action_selete = "c";
+    [Tooltip("item drop")]
+    public string drop = "q";
+    bool select_lock = false;
 
     [Tooltip("The image or text that is shown in the middle of the the screen.")]
     public GameObject CrosshairPrefab;
     [HideInInspector]
-    public GameObject CrosshairPrefabInstance; // A copy of the crosshair prefab to prevent data corruption
+    public GameObject CrosshairPrefabInstance; // (자동 카피됨. '원본의 손실 대처')
 
-    // DEBUG SETTINGS
+    // 디버그
     [Header("Debug Settings")]
+    public bool isOn = true;
     [Tooltip("The color of the debugray that will be shown in the scene view window when playing the game.")]
     public Color DebugRayColor;
     [Tooltip("The opacity of the debugray.")]
     [Range(0.0F, 1.0F)]
     public float Opacity = 1.0F;
 
+    private GameObject master; //최상단 컨트롤 오브젝트 불러오는 용도.
+
     void Start()
     {
         gameObject.name = "Player";
         gameObject.tag = "Player";
-
+        DebugRayColor.a = Opacity; // DebugRayColor 알파값 설정. 0 : 안보임 / 1:진하게 보임. 값은 0~1
+        master = GameObject.FindGameObjectWithTag("GameController");    //'gamecontroller' 로 설정된 오브젝트 찾기. 해당 오브젝트 = 마스터 컨트롤 오브젝트.
     }
 
     void Update()
     {
-        // Set origin of ray to 'center of screen' and direction of ray to 'cameraview'
+        // Set origin of ray to 'center of screen'
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0F));                  //메인 카메라...
 
         RaycastHit hit; // Variable reading information about the collider hit
-        Debug.Log("1");
         // Cast ray from center of the screen towards where the player is looking
         if (Physics.Raycast(ray, out hit, Reach))
         {
-            Debug.Log("2");
             if (hit.collider.tag == "Door")
             {
-                Debug.Log("3");
-                InReach = true;
-
-                // Display the UI element when the player is in reach of the door
- 
-
-                // Give the object that was hit the name 'Door'
+                InReach = true; 
                 GameObject Door = hit.transform.gameObject;
-
-                // Get access to the 'Door' script attached to the object that was hit
                 Doors dooropening = Door.GetComponent<Doors>();
-
-                if (Input.GetKey(Character))
-                {
-                    // Open/close the door by running the 'Open' function found in the 'Door' script
+                if (Input.GetKey(action_door))                {
+                    // 문짝 스크립트 작동
                     if (dooropening.RotationPending == false)
                     {
                         StartCoroutine(hit.collider.GetComponent<Doors>().Move());
-                        Debug.Log("4");
                     }
                 }
             }
             else if (hit.collider.tag == "Wall")
             {
-                Debug.Log("3_2");
                 InReach = true;
-
                 GameObject Wall = hit.transform.gameObject;
-
                 Wall_color Wall_color = Wall.GetComponent<Wall_color>();
-                if (Input.GetKey(changer))
+                if (Input.GetKey(action_color))
                 {
-                    Debug.Log("4_2");
                     hit.collider.GetComponent<Wall_color>().change();
                 }
+
+            }
+            else if (hit.collider.tag== "Furniture")
+            {
+                InReach = true;
+                GameObject furniture = hit.transform.gameObject;
+                Control_object control = furniture.GetComponent<Control_object>();
+                if (Input.GetKeyDown(action_selete))
+                {
+                    control.Locker();
+                }
+            }
+            else if (Input.GetKeyDown(drop))
+            {                
+                Vector3 targetpos = hit.point;
+                targetpos.y += 1;       //pos.y 그대로 둘 시 바닥에 처박힘.
+                Instantiate(master.GetComponent<Group_Furniture>().get_Selected(), targetpos, transform.rotation);
 
             }
             else
@@ -90,15 +99,11 @@ public class Detected : MonoBehaviour {
                 InReach = false;
             }
         }
-
         else
-        {
             InReach = false;
 
-
-        }
-
         //Draw the ray as a colored line for debugging purposes.
+        if (isOn)
         Debug.DrawRay(ray.origin, ray.direction * Reach, DebugRayColor);
     }
 }

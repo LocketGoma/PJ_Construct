@@ -13,7 +13,7 @@ public class player : MonoBehaviour {
     private float inputV; // 수직 입력
 
 
-
+    bool locked=true;         //T: 사용중, F:사용불가
     public Vector3 Gravity = Vector3.down * 9.81f;
     public float RotationRate = 0.1f;
 
@@ -77,20 +77,29 @@ public class player : MonoBehaviour {
         Vector3 gravityForward = Vector3.Cross(Gravity, transform.right);
         Quaternion targetRotation = Quaternion.LookRotation(gravityForward, -Gravity);
         GetComponent<Rigidbody>().rotation = Quaternion.Lerp(GetComponent<Rigidbody>().rotation, targetRotation, RotationRate);
+        if (locked)
+        {
+            Vector3 forward = Vector3.Cross(transform.up, -LookTransform.right).normalized;         //상하 힘 *            // transform.up = Y축
+            Vector3 right = Vector3.Cross(transform.up, LookTransform.forward).normalized;          //좌우 힘 *
 
-        Vector3 forward = Vector3.Cross(transform.up, -LookTransform.right).normalized;         //상하 힘 *            // transform.up = Y축
-        Vector3 right = Vector3.Cross(transform.up, LookTransform.forward).normalized;          //좌우 힘 *
+            Vector3 BaseVelocity = (forward * Input.GetAxis("Vertical") + right * Input.GetAxis("Horizontal")) * speed;
+            Vector3 localVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
+            Vector3 ChangeVelocity = transform.InverseTransformDirection(BaseVelocity) - localVelocity;
 
-        Vector3 BaseVelocity = (forward * Input.GetAxis("Vertical") + right * Input.GetAxis("Horizontal"))*speed;
-        Vector3 localVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
-        Vector3 ChangeVelocity = transform.InverseTransformDirection(BaseVelocity) - localVelocity;
+            GetComponent<Rigidbody>().AddForce(ChangeVelocity, ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(Gravity * GetComponent<Rigidbody>().mass);
+        }
+        
+       
 
-
-
-
-        GetComponent<Rigidbody>().AddForce(ChangeVelocity, ForceMode.VelocityChange);
-
-        GetComponent<Rigidbody>().AddForce(Gravity * GetComponent<Rigidbody>().mass);
-
+    }
+    public void locker()
+    {
+        Debug.Log("user lock");
+        locked = false;
+    }
+    public void release()
+    {
+        locked = true;
     }
 }
