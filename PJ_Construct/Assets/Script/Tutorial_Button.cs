@@ -15,6 +15,7 @@ public class Tutorial_Button : MonoBehaviour {
 	}
 	public void Button_Click()
 	{
+        Debug.Log(name+"click");
 		ScrollView.ButtonClicked(Name);
 
 	}

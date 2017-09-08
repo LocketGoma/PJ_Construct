@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 71df87836a0c48641a9fc9d3ed6d8daa
-timeCreated: 1483514470
-licenseType: Store
+timeCreated: 1504788602
+licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
   materialInstances:
@@ -122,126 +122,70 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 1.5, y: 1.5}
+      scale: {x: 10, y: 10}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 42
     materialProperties:
-      serializedVersion: 2
+      serializedVersion: 3
       texEnvs:
-      - first:
-          name: _BumpMap
-        second:
+      - _BumpMap:
           texture: {instanceID: 0}
-          scale: {x: 1.5, y: 1.5}
+          scale: {x: 10, y: 1}
           offset: {x: 0, y: 0}
-      - first:
-          name: _DetailAlbedoMap
-        second:
+      - _DetailAlbedoMap:
           texture: {instanceID: 0}
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
-      - first:
-          name: _DetailMask
-        second:
+      - _DetailMask:
           texture: {instanceID: 0}
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
-      - first:
-          name: _DetailNormalMap
-        second:
+      - _DetailNormalMap:
           texture: {instanceID: 0}
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
-      - first:
-          name: _EmissionMap
-        second:
+      - _EmissionMap:
           texture: {instanceID: 0}
-          scale: {x: 1.5, y: 1.5}
+          scale: {x: 10, y: 10}
           offset: {x: 0, y: 0}
-      - first:
-          name: _MainTex
-        second:
+      - _MainTex:
           texture: {instanceID: 0}
-          scale: {x: 1.5, y: 1.5}
+          scale: {x: 10, y: 10}
           offset: {x: 0, y: 0}
-      - first:
-          name: _OcclusionMap
-        second:
+      - _OcclusionMap:
           texture: {instanceID: 0}
-          scale: {x: 1.5, y: 1.5}
+          scale: {x: 10, y: 1}
           offset: {x: 0, y: 0}
-      - first:
-          name: _ParallaxMap
-        second:
+      - _ParallaxMap:
           texture: {instanceID: 0}
-          scale: {x: 1.5, y: 1.5}
+          scale: {x: 10, y: 1}
           offset: {x: 0, y: 0}
-      - first:
-          name: _SpecGlossMap
-        second:
+      - _SpecGlossMap:
           texture: {instanceID: 0}
           scale: {x: 1, y: 1}
           offset: {x: 0, y: 0}
       floats:
-      - first:
-          name: _BumpScale
-        second: 1
-      - first:
-          name: _Cutoff
-        second: 0.5
-      - first:
-          name: _DetailNormalMapScale
-        second: 1
-      - first:
-          name: _DstBlend
-        second: 0
-      - first:
-          name: _GlossMapScale
-        second: 1
-      - first:
-          name: _Glossiness
-        second: 0.211
-      - first:
-          name: _GlossyReflections
-        second: 1
-      - first:
-          name: _Metallic
-        second: 0.355
-      - first:
-          name: _Mode
-        second: 0
-      - first:
-          name: _OcclusionStrength
-        second: 1
-      - first:
-          name: _Parallax
-        second: 0.02
-      - first:
-          name: _SmoothnessTextureChannel
-        second: 0
-      - first:
-          name: _SpecularHighlights
-        second: 1
-      - first:
-          name: _SrcBlend
-        second: 1
-      - first:
-          name: _UVSec
-        second: 0
-      - first:
-          name: _ZWrite
-        second: 1
+      - _BumpScale: 1
+      - _Cutoff: 0.5
+      - _DetailNormalMapScale: 1
+      - _DstBlend: 0
+      - _GlossMapScale: 1
+      - _Glossiness: 0.211
+      - _GlossyReflections: 1
+      - _Metallic: 0.355
+      - _Mode: 0
+      - _OcclusionStrength: 1
+      - _Parallax: 0.02
+      - _SmoothnessTextureChannel: 0
+      - _SpecularHighlights: 1
+      - _SrcBlend: 1
+      - _UVSec: 0
+      - _ZWrite: 1
       colors:
-      - first:
-          name: _Color
-        second: {r: 0.6764706, g: 0.6764706, b: 0.6764706, a: 1}
-      - first:
-          name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
-      - first:
-          name: _SpecColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+      - _Color: {r: 0.6764706, g: 0.6764706, b: 0.6764706, a: 1}
+      - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+      - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     textureParameters:
     - name: h-005_brick-011_M_basecolor
       alphaSource: 6
@@ -264,20 +208,16 @@ SubstanceImporter:
       aniso: 1
       wrapMode: 0
     textureAssignments:
-    - shaderProp:
-        name: _MainTex
-      material: {instanceID: 0}
-      baseUID: 2297160333
-    - shaderProp:
-        name: _BumpMap
+    - shaderProp: _BumpMap
       material: {instanceID: 0}
       baseUID: 2297160335
-    - shaderProp:
-        name: _OcclusionMap
+    - shaderProp: _MainTex
+      material: {instanceID: 0}
+      baseUID: 2297160333
+    - shaderProp: _OcclusionMap
       material: {instanceID: 0}
       baseUID: 2334858199
-    - shaderProp:
-        name: _ParallaxMap
+    - shaderProp: _ParallaxMap
       material: {instanceID: 0}
       baseUID: 2334858182
     buildTargetSettings:

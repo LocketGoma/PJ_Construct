@@ -5,21 +5,26 @@ using UnityEngine;
 public class Control_object : MonoBehaviour {
     // 캐릭터 컨트롤에서 '오브젝트가 선택되었을 시 움직이지 않게' 설정할 것.
     // 선택시에는 레이캐스트로 '화면에 보이게', 릴리즈 (다시 플레이어가 움직이게 할때)는 보이지 않더라도 작동하게 할것.
+    Rigidbody rbody;
 
     int locked = 0;           //1:lock / 0:non_lock
     static int world_locked = 0; //1:lock / 0:non_lock <-  락 걸리는건 단 하나!
     public float speed = 10f;
+    [Tooltip("1 = 1cm")]
+    public float heigth = 100f;
+    [Tooltip("1 = 1cm")]
+    public float jump_heigth = 50f;
     private float inputH; // 수평 입력
     private float inputV; // 수직 입력  
 
-    public GameObject marker;
+    public GameObject marker;    
     bool maked = false;
 
  //   Renderer renderer;
 
     // Use this for initialization
     void Start () {
-       
+        rbody = GetComponent<Rigidbody>();
 //        Instantiate(marker, new Vector3(transform.position.x, transform.position.y+1, transform.position.z), transform.rotation).transform.SetParent(transform);
         //       renderer = marker.GetComponent<Renderer>();
         //       renderer.material.shader = Shader.Find("Standard");
@@ -38,6 +43,7 @@ public class Control_object : MonoBehaviour {
         if (locked == 1)
         {
             world_locked = 0;
+            rbody.isKinematic = false;  //rigidbody on
             return locked = 0;
         }
         if (world_locked == 1)
@@ -45,6 +51,8 @@ public class Control_object : MonoBehaviour {
             return locked = 0;
         }
         world_locked = 1;
+        rbody.isKinematic = true;       //rigidbody off
+        transform.position = new Vector3(transform.position.x, transform.position.y + (jump_heigth / 100), transform.position.z);
         return locked = 1;
     }
     void is_control()
@@ -75,6 +83,7 @@ public class Control_object : MonoBehaviour {
     }
     void movement()     //일반적인 움직임 관련.
     {
+        
         inputH = Input.GetAxis("Horizontal");
         inputV = Input.GetAxis("Vertical");
 
@@ -95,7 +104,7 @@ public class Control_object : MonoBehaviour {
     {
         if (!maked)     // 이건 선택된 오브젝트 위에 블럭 얹기
         {
-            Instantiate(marker, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation).transform.SetParent(transform);
+            Instantiate(marker, new Vector3(transform.position.x, transform.position.y + (heigth/100), transform.position.z), transform.rotation).transform.SetParent(transform);
             maked = true;
         }
 

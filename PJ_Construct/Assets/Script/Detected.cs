@@ -20,6 +20,8 @@ public class Detected : MonoBehaviour {
     public string action_selete = "c";
     [Tooltip("item drop")]
     public string drop = "q";
+    [Tooltip("furniture delete")]
+    public string delete_furniture = "k";
     bool select_lock = false;
 
     [Tooltip("The image or text that is shown in the middle of the the screen.")]
@@ -99,7 +101,10 @@ public class Detected : MonoBehaviour {
                     playerscript.locker();
                     else if (control.world_locker()==0)
                     playerscript.release();
-
+                }
+                if (Input.GetKeyDown(delete_furniture))
+                {
+                    Destroy(furniture);
                 }
             }
             else if (Input.GetKeyDown(drop))
