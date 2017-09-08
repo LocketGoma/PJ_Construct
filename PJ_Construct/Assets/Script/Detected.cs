@@ -26,8 +26,13 @@ public class Detected : MonoBehaviour {
 
     [Tooltip("The image or text that is shown in the middle of the the screen.")]
     public GameObject CrosshairPrefab;
+    [Tooltip("if seleted something")]
+    public GameObject CrosshairSeleted;
     [HideInInspector]
     public GameObject CrosshairPrefabInstance; // (자동 카피됨. '원본의 손실 대처')
+    [HideInInspector]
+    public GameObject CrosshairSeletedInstance;
+    bool isSeleted = false;
 
     // 디버그
     [Header("Debug Settings")]
@@ -59,11 +64,22 @@ public class Detected : MonoBehaviour {
     {
         // Set origin of ray to 'center of screen'
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0F));                  //메인 카메라...
-
+        if (isSeleted == true)
+        {
+            Destroy(CrosshairPrefabInstance);
+            CrosshairPrefabInstance = Instantiate(CrosshairPrefab);
+            isSeleted = false;
+        }
         RaycastHit hit; // Variable reading information about the collider hit
         // Cast ray from center of the screen towards where the player is looking
         if (Physics.Raycast(ray, out hit, Reach))
         {
+            if (isSeleted == false)
+            {
+                Destroy(CrosshairPrefabInstance);
+                CrosshairPrefabInstance = Instantiate(CrosshairSeleted);
+                isSeleted = true;
+            }
             if (hit.collider.tag == "Door")
             {
                 InReach = true; 
