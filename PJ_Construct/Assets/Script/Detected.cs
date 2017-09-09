@@ -44,14 +44,15 @@ public class Detected : MonoBehaviour {
     public float Opacity = 1.0F;
 
     private GameObject master; //최상단 컨트롤 오브젝트 불러오는 용도.
-
+    private player playerscript;    //유저 스크립트
+    bool temp_move = false;
     void Start()
     {
         gameObject.name = "Player";
         gameObject.tag = "Player";
         DebugRayColor.a = Opacity; // DebugRayColor 알파값 설정. 0 : 안보임 / 1:진하게 보임. 값은 0~1
         master = GameObject.FindGameObjectWithTag("GameController");    //'gamecontroller' 로 설정된 오브젝트 찾기. 해당 오브젝트 = 마스터 컨트롤 오브젝트.
-
+        playerscript = user.GetComponent<player>();
         if (CrosshairPrefab == null) Debug.Log("<color=yellow><b>No CrosshairPrefab was found.</b></color>"); // Return an error if no crosshair was specified
         else
         {
@@ -63,6 +64,18 @@ public class Detected : MonoBehaviour {
     void Update()
     {
         // Set origin of ray to 'center of screen'
+        
+        if (Input.GetKey(KeyCode.Joystick1Button8)&&temp_move==false)
+        {
+            
+            playerscript.release();
+            temp_move = true;
+        }        
+        else if (temp_move == true)
+        {
+            playerscript.locker();
+            temp_move = false;
+        }
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0F));                  //메인 카메라...
         if (isSeleted == true)
         {
@@ -82,10 +95,11 @@ public class Detected : MonoBehaviour {
             }
             if (hit.collider.tag == "Door")
             {
-                InReach = true; 
+                InReach = true;
                 GameObject Door = hit.transform.gameObject;
                 Doors dooropening = Door.GetComponent<Doors>();
-                if (Input.GetKey(action_door))                {
+                if (Input.GetKey(action_door))
+                {
                     // 문짝 스크립트 작동
                     if (dooropening.RotationPending == false)
                     {
@@ -104,27 +118,33 @@ public class Detected : MonoBehaviour {
                 }
 
             }
-            else if (hit.collider.tag== "Furniture")
+            else if (hit.collider.tag == "Furniture")
             {
                 InReach = true;
                 
-                player playerscript = user.GetComponent<player>();
                 GameObject furniture = hit.transform.gameObject;
                 Control_object control = furniture.GetComponent<Control_object>();
-                if (Input.GetKeyDown(action_selete))
+                if (Input.GetKeyDown(action_selete) || Input.GetKey(KeyCode.Joystick1Button4))
                 {
-                    if(control.Locker()==1)
-                    playerscript.locker();
-                    else if (control.world_locker()==0)
-                    playerscript.release();
+                    if (control.Locker() == 1)
+                        playerscript.locker();
+                    else if (control.world_locker() == 0)
+                        playerscript.release();
                 }
-                if (Input.GetKeyDown(delete_furniture))
+                if (Input.GetKeyDown(delete_furniture) || Input.GetKey(KeyCode.Joystick1Button1))
                 {
                     Destroy(furniture);
+                    control.clear();
+                    playerscript.release();
+                }
+                if (Input.GetKeyDown("r") || Input.GetKey(KeyCode.Joystick1Button9))
+                {
+                    control.clear();
+                    playerscript.release();
                 }
             }
-            else if (Input.GetKeyDown(drop))
-            {                
+            else if (Input.GetButtonDown("Deploy") || Input.GetKey(KeyCode.Joystick1Button5)) //else if (Input.GetKeyDown(drop))
+            {
                 Vector3 targetpos = hit.point;
                 targetpos.y += 1;       //pos.y 그대로 둘 시 바닥에 처박힘.
                 Instantiate(master.GetComponent<Group_Furniture>().get_Selected(), targetpos, transform.rotation);

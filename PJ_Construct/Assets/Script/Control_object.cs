@@ -40,6 +40,7 @@ public class Control_object : MonoBehaviour {
 
     public int Locker()
     {
+        Debug.Log("selected");
         if (locked == 1)
         {
             world_locked = 0;
@@ -115,5 +116,10 @@ public class Control_object : MonoBehaviour {
     {
         return world_locked;
     }
-
+    public void clear()
+    {
+        world_locked = 0;
+        locked = 0;
+        rbody.isKinematic = false;  //rigidbody on
+    }
 }

@@ -58,6 +58,7 @@
      <Compile Include="Assets\Script\Wall_color.cs" />
      <Compile Include="Assets\Script\player.cs" />
      <Compile Include="Assets\Script\ui.cs" />
+     <Compile Include="Assets\Test\Finder.cs" />
      <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_findCam.cs" />
      <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_openAnim_S.cs" />
      <Compile Include="Assets\VK-House-05\H-005\H-base\_openAnim\h005_openDoor_S.cs" />
