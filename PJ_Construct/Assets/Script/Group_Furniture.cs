@@ -22,17 +22,17 @@ public class Group_Furniture : MonoBehaviour {
     public string next="]";
 
 	void Start () {
-        if(furniture.Length<selected||selected<0)
+        // if(furniture.Length<selected||selected<0)
         selected_obj = furniture[0];
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(back))
+        if (Input.GetKeyDown(back) || Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
             changer(-1);
         }
-        if (Input.GetKeyDown(next))
+        if (Input.GetKeyDown(next) || Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
             changer(1);
         }

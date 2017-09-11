@@ -9,6 +9,7 @@ public class Detected : MonoBehaviour {
     public float Reach = 4.0F;
     [Header("target user")]
     public GameObject user;
+    public Camera cam;
     [HideInInspector]
     public bool InReach;            //<- 어따 씀?
     [Header("Key binding")]
@@ -56,8 +57,8 @@ public class Detected : MonoBehaviour {
         if (CrosshairPrefab == null) Debug.Log("<color=yellow><b>No CrosshairPrefab was found.</b></color>"); // Return an error if no crosshair was specified
         else
         {
-            CrosshairPrefabInstance = Instantiate(CrosshairPrefab); // Display the crosshair prefab
-            CrosshairPrefabInstance.transform.SetParent(transform, true); // Make the player the parent object of the crosshair prefab
+            CrosshairPrefabInstance = Instantiate(CrosshairPrefab); // 크로스헤어 표기
+            CrosshairPrefabInstance.transform.SetParent(transform, true); // 크로스헤어의 부모를 player 인스턴스로 적용.
         }
     }
 
@@ -76,21 +77,32 @@ public class Detected : MonoBehaviour {
             playerscript.locker();
             temp_move = false;
         }
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0F));                  //메인 카메라...
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0F));                  //메인 카메라...
         if (isSeleted == true)
         {
             Destroy(CrosshairPrefabInstance);
             CrosshairPrefabInstance = Instantiate(CrosshairPrefab);
+            CrosshairPrefabInstance.transform.SetParent(transform, true);
             isSeleted = false;
         }
+
+ 
+        
+        if (Input.GetKeyDown("r") || Input.GetKeyDown(KeyCode.Joystick1Button9))                    //emergency cancel
+        {
+            playerscript.release();
+        }
+        
         RaycastHit hit; // Variable reading information about the collider hit
         // Cast ray from center of the screen towards where the player is looking
+
         if (Physics.Raycast(ray, out hit, Reach))
         {
             if (isSeleted == false)
             {
                 Destroy(CrosshairPrefabInstance);
                 CrosshairPrefabInstance = Instantiate(CrosshairSeleted);
+                CrosshairPrefabInstance.transform.SetParent(transform, true);
                 isSeleted = true;
             }
             if (hit.collider.tag == "Door")
@@ -120,30 +132,27 @@ public class Detected : MonoBehaviour {
             }
             else if (hit.collider.tag == "Furniture")
             {
+//                Debug.Log("selected");
                 InReach = true;
-                
+
                 GameObject furniture = hit.transform.gameObject;
                 Control_object control = furniture.GetComponent<Control_object>();
-                if (Input.GetKeyDown(action_selete) || Input.GetKey(KeyCode.Joystick1Button4))
+                if (Input.GetKeyDown(action_selete) || Input.GetKeyDown(KeyCode.Joystick1Button3))
                 {
                     if (control.Locker() == 1)
                         playerscript.locker();
                     else if (control.world_locker() == 0)
                         playerscript.release();
                 }
-                if (Input.GetKeyDown(delete_furniture) || Input.GetKey(KeyCode.Joystick1Button1))
+                if (Input.GetKeyDown(delete_furniture) || Input.GetKeyDown(KeyCode.Joystick1Button1))
                 {
                     Destroy(furniture);
                     control.clear();
                     playerscript.release();
                 }
-                if (Input.GetKeyDown("r") || Input.GetKey(KeyCode.Joystick1Button9))
-                {
-                    control.clear();
-                    playerscript.release();
-                }
+
             }
-            else if (Input.GetButtonDown("Deploy") || Input.GetKey(KeyCode.Joystick1Button5)) //else if (Input.GetKeyDown(drop))
+            else if (Input.GetButtonDown("Deploy") || Input.GetKeyDown(KeyCode.Joystick1Button2)) //else if (Input.GetKeyDown(drop))
             {
                 Vector3 targetpos = hit.point;
                 targetpos.y += 1;       //pos.y 그대로 둘 시 바닥에 처박힘.
@@ -156,7 +165,9 @@ public class Detected : MonoBehaviour {
             }
         }
         else
+        {
             InReach = false;
+        }
 
         //Draw the ray as a colored line for debugging purposes.
         if (isOn)
