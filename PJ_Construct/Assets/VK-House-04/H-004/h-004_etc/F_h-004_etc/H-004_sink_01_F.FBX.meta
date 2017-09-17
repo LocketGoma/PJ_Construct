@@ -1,0 +1,128 @@
+fileFormatVersion: 2
+guid: 48191d53f4ee0144f842cd5742f9f1d1
+timeCreated: 1481413285
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: h-004_gaStove
+    100004: h-004_gaStove_switch_01
+    100006: h-004_gaStove_switch_02
+    100008: h-004_sink
+    100010: h-004_sink_door01_L
+    100012: h-004_sink_door01_R
+    100014: h-004_sink_door02_L
+    100016: h-004_sink_door02_R
+    100018: h-004_sink_frame
+    100020: h-004_sink_switch
+    100022: h-004_sink_door03_L
+    400000: //RootNode
+    400002: h-004_gaStove
+    400004: h-004_gaStove_switch_01
+    400006: h-004_gaStove_switch_02
+    400008: h-004_sink
+    400010: h-004_sink_door01_L
+    400012: h-004_sink_door01_R
+    400014: h-004_sink_door02_L
+    400016: h-004_sink_door02_R
+    400018: h-004_sink_frame
+    400020: h-004_sink_switch
+    400022: h-004_sink_door03_L
+    2300000: h-004_gaStove
+    2300002: h-004_gaStove_switch_01
+    2300004: h-004_gaStove_switch_02
+    2300006: h-004_sink
+    2300008: h-004_sink_door01_L
+    2300010: h-004_sink_door01_R
+    2300012: h-004_sink_door02_L
+    2300014: h-004_sink_door02_R
+    2300016: h-004_sink_frame
+    2300018: h-004_sink_switch
+    2300020: h-004_sink_door03_L
+    3300000: h-004_gaStove
+    3300002: h-004_gaStove_switch_01
+    3300004: h-004_gaStove_switch_02
+    3300006: h-004_sink
+    3300008: h-004_sink_door01_L
+    3300010: h-004_sink_door01_R
+    3300012: h-004_sink_door02_L
+    3300014: h-004_sink_door02_R
+    3300016: h-004_sink_frame
+    3300018: h-004_sink_switch
+    3300020: h-004_sink_door03_L
+    4300000: h-004_gaStove_switch_02
+    4300002: h-004_sink_door01_L
+    4300004: h-004_sink_switch
+    4300006: h-004_gaStove
+    4300008: h-004_gaStove_switch_01
+    4300010: h-004_sink_door02_R
+    4300012: h-004_sink_door02_L
+    4300014: h-004_sink_door01_R
+    4300016: h-004_sink_frame
+    4300018: h-004_sink
+    4300020: h-004_sink_door03_L
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

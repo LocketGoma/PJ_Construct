@@ -21,6 +21,8 @@ public class Group_Furniture : MonoBehaviour {
     public string back="[";
     public string next="]";
 
+    int isUse = 1;
+
 	void Start () {
         // if(furniture.Length<selected||selected<0)
         selected_obj = furniture[0];
@@ -31,10 +33,16 @@ public class Group_Furniture : MonoBehaviour {
         if (Input.GetKeyDown(back) || Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
             changer(-1);
+            Seeing();
         }
         if (Input.GetKeyDown(next) || Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
             changer(1);
+            Seeing();
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button6))
+        {
+            isUse ^= 1;
         }
 	}
     void changer(int arrow)
@@ -54,6 +62,32 @@ public class Group_Furniture : MonoBehaviour {
     {
         Debug.Log("number:" + selected);
         return selected_obj;
+    }
+    void Seeing()
+    {
+        if (isUse == 1)
+        {
+            StartCoroutine("Seeker");
+        }
+    //    
+
+    }
+    IEnumerator Seeker()        // 물체 임시로 띄워서 보게 하는 코루틴. 3초 대기.
+    {
+        GameObject temp = selected_obj;
+        GameObject point = null;
+
+
+        GameObject pin = GameObject.FindGameObjectWithTag("Pin");
+        point = Instantiate(temp, new Vector3(pin.transform.position.x, pin.transform.position.y, pin.transform.position.z), pin.transform.rotation) as GameObject;
+        point.GetComponent<Rigidbody>().isKinematic = true;
+        Destroy(point.GetComponent<Rigidbody>());
+        point.GetComponent<Collider>().enabled = false;
+        Debug.Log(point);
+        yield return new WaitForSeconds(3);
+        {
+            Destroy(point.gameObject);
+        }
     }
 
 

@@ -1,0 +1,142 @@
+fileFormatVersion: 2
+guid: 0addfe6a44854cb4f80f2fdc6f4e6017
+timeCreated: 1482028379
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: h-004_wardrobe_01-01_door_01
+    100004: h-004_wardrobe_01-01_door_02
+    100006: h-004_wardrobe_01-01_door_03
+    100008: h-004_wardrobe_01-01_door_04
+    100010: h-004_wardrobe_01-01_frame
+    100012: h-004_wardrobe_01-01_door_005
+    100014: h-004_wardrobe_01-01_door_006
+    100016: h-004_wardrobe_01-01_door_008
+    100018: h-004_wardrobe_01-01_door_009
+    100020: h-004_wardrobe_01-01_frame001
+    100022: h-004_wardrobe_01-01_door_L
+    100024: h-004_wardrobe_01-01_door_R
+    100026: h-004_wardrobe_01-01_drawer
+    400000: //RootNode
+    400002: h-004_wardrobe_01-01_door_01
+    400004: h-004_wardrobe_01-01_door_02
+    400006: h-004_wardrobe_01-01_door_03
+    400008: h-004_wardrobe_01-01_door_04
+    400010: h-004_wardrobe_01-01_frame
+    400012: h-004_wardrobe_01-01_door_005
+    400014: h-004_wardrobe_01-01_door_006
+    400016: h-004_wardrobe_01-01_door_008
+    400018: h-004_wardrobe_01-01_door_009
+    400020: h-004_wardrobe_01-01_frame001
+    400022: h-004_wardrobe_01-01_door_L
+    400024: h-004_wardrobe_01-01_door_R
+    400026: h-004_wardrobe_01-01_drawer
+    2300000: h-004_wardrobe_01-01_door_01
+    2300002: h-004_wardrobe_01-01_door_02
+    2300004: h-004_wardrobe_01-01_door_03
+    2300006: h-004_wardrobe_01-01_door_04
+    2300008: h-004_wardrobe_01-01_frame
+    2300010: h-004_wardrobe_01-01_door_005
+    2300012: h-004_wardrobe_01-01_door_006
+    2300014: h-004_wardrobe_01-01_door_008
+    2300016: h-004_wardrobe_01-01_door_009
+    2300018: h-004_wardrobe_01-01_frame001
+    2300020: h-004_wardrobe_01-01_door_L
+    2300022: h-004_wardrobe_01-01_door_R
+    2300024: h-004_wardrobe_01-01_drawer
+    3300000: h-004_wardrobe_01-01_door_01
+    3300002: h-004_wardrobe_01-01_door_02
+    3300004: h-004_wardrobe_01-01_door_03
+    3300006: h-004_wardrobe_01-01_door_04
+    3300008: h-004_wardrobe_01-01_frame
+    3300010: h-004_wardrobe_01-01_door_005
+    3300012: h-004_wardrobe_01-01_door_006
+    3300014: h-004_wardrobe_01-01_door_008
+    3300016: h-004_wardrobe_01-01_door_009
+    3300018: h-004_wardrobe_01-01_frame001
+    3300020: h-004_wardrobe_01-01_door_L
+    3300022: h-004_wardrobe_01-01_door_R
+    3300024: h-004_wardrobe_01-01_drawer
+    4300000: h-004_wardrobe_01-01_door_01
+    4300002: h-004_wardrobe_01-01_door_04
+    4300004: h-004_wardrobe_01-01_door_03
+    4300006: h-004_wardrobe_01-01_door_02
+    4300008: h-004_wardrobe_01-01_frame
+    4300010: h-004_wardrobe_01-01_door_005
+    4300012: h-004_wardrobe_01-01_door_006
+    4300014: h-004_wardrobe_01-01_door_008
+    4300016: h-004_wardrobe_01-01_frame001
+    4300018: h-004_wardrobe_01-01_door_009
+    4300020: h-004_wardrobe_01-01_door_L
+    4300022: h-004_wardrobe_01-01_drawer
+    4300024: h-004_wardrobe_01-01_door_R
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

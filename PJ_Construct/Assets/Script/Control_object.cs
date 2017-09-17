@@ -15,6 +15,10 @@ public class Control_object : MonoBehaviour
     public float heigth = 100f;
     [Tooltip("1 = 1cm")]
     public float jump_heigth = 50f;
+    [Header("control")]
+    public float Rotpower=20f;
+    public float Heightpower=10f;
+
     private float inputH; // 수평 입력
     private float inputV; // 수직 입력  
 
@@ -95,21 +99,29 @@ public class Control_object : MonoBehaviour
     }
     void movement()     //일반적인 움직임 관련.
     {
-
+        
         inputH = Input.GetAxis("Horizontal");
         inputV = Input.GetAxis("Vertical");
+
+        float InputR = Input.GetAxis("DpadX"); // rotate
+        float InputG = Input.GetAxis("DpadY");
 
 
         // 이동 부분
         float moveX = inputH * speed * Time.deltaTime;
         float moveZ = inputV * speed * Time.deltaTime;
-        //if (moveX != 0.0) print(moveX);
-        //if (moveZ != 0.0) print(moveZ);
-
+        float moveR = InputR * Rotpower * Time.deltaTime;
+        float moveG = InputG * 10f * Time.deltaTime;
+ //       Debug.Log(Time.deltaTime+":"+Heightpower+":" + InputG);
+        Debug.Log(moveG);
 
         //rbody.velocity = new Vector3(moveX, 0f, moveZ);
         transform.position += transform.forward * moveZ;
         transform.position += transform.right * moveX;
+        transform.position += transform.up * moveG;
+
+        transform.Rotate(0, moveR, 0);
+
         // 이동 부분 관련 끝
     }
     void shadering()   //'벽 뒤로 가기' 쉐이더 입히기.

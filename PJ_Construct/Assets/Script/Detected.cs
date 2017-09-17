@@ -67,8 +67,7 @@ public class Detected : MonoBehaviour {
         // Set origin of ray to 'center of screen'
         
         if (Input.GetKey(KeyCode.Joystick1Button8)&&temp_move==false)
-        {
-            
+        {            
             playerscript.release();
             temp_move = true;
         }        
@@ -110,7 +109,7 @@ public class Detected : MonoBehaviour {
                 InReach = true;
                 GameObject Door = hit.transform.gameObject;
                 Doors dooropening = Door.GetComponent<Doors>();
-                if (Input.GetKey(action_door))
+                if (Input.GetKeyDown(action_door) || Input.GetKeyDown(KeyCode.Joystick1Button0))
                 {
                     // 문짝 스크립트 작동
                     if (dooropening.RotationPending == false)
@@ -119,6 +118,19 @@ public class Detected : MonoBehaviour {
                     }
                 }
             }
+            if (hit.collider.tag == "SlideDoor")
+            {
+     
+                InReach = true;
+                GameObject Door = hit.transform.gameObject;
+                SlideDoors dooropening = Door.GetComponent<SlideDoors>();
+                if (Input.GetKeyDown(action_door) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+                {
+                    dooropening.Switching();
+                }
+            }
+
+
             else if (hit.collider.tag == "Wall")
             {
                 InReach = true;
@@ -132,7 +144,7 @@ public class Detected : MonoBehaviour {
             }
             else if (hit.collider.tag == "Furniture")
             {
-//                Debug.Log("selected");
+                //                Debug.Log("selected");
                 InReach = true;
 
                 GameObject furniture = hit.transform.gameObject;
