@@ -52,10 +52,13 @@
      <Compile Include="Assets\Script\Detected.cs" />
      <Compile Include="Assets\Script\Doors.cs" />
      <Compile Include="Assets\Script\Group_Furniture.cs" />
+     <Compile Include="Assets\Script\Group_Scene.cs" />
+     <Compile Include="Assets\Script\Group_UI.cs" />
      <Compile Include="Assets\Script\Move.cs" />
      <Compile Include="Assets\Script\SlideDoors.cs" />
      <Compile Include="Assets\Script\Tutorial_Button.cs" />
      <Compile Include="Assets\Script\Tutorial_ScrollView.cs" />
+     <Compile Include="Assets\Script\UI_Switch.cs" />
      <Compile Include="Assets\Script\UpdateEyeAnchors.cs" />
      <Compile Include="Assets\Script\Wall_color.cs" />
      <Compile Include="Assets\Script\player.cs" />

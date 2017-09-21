@@ -80,9 +80,9 @@ public class Finder : MonoBehaviour {
                 if (Input.GetKey(KeyCode.Joystick1Button19))
                     Debug.Log("bt19");
                 if (Input.GetAxisRaw("DpadX") != 0)
-                    Debug.Log(Input.GetAxis("DpadX"));
+                    Debug.Log("DpadX"+Input.GetAxis("DpadX"));
                 if (Input.GetAxisRaw("DpadY") != 0)
-                    Debug.Log(Input.GetAxis("DpadY"));
+                    Debug.Log("DpadY" + Input.GetAxis("DpadY"));
 
 
 
